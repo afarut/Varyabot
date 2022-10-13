@@ -8,7 +8,7 @@ cursor = conn.cursor()
 def get_next_question(user_id):
 	result = cursor.execute("""SELECT answer_id, question_id FROM Statistics 
 							   WHERE user_id = ?
-							   ORDER BY datetime DESC""", (user_id,)).fetchall()
+							   ORDER BY id DESC""", (user_id,)).fetchall()
 
 	try:
 		question_id = result[0][1] + 1

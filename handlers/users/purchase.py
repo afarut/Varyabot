@@ -25,8 +25,7 @@ Be as honest as possible when answering the questions as that will provide you w
 async def text_msg(message):
     s = message.text
     if s == "Начать тест" or s == "Пройти тест заново":
-        if s == "Пройти тест заново":
-            db.del_stat(message.chat.id)
+        db.del_stat(message.chat.id)
         question = db.get_next_question(message.chat.id)
         answers = db.get_answers()
         if question['id'] == 1:
